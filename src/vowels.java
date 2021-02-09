@@ -12,22 +12,20 @@ public class vowels {
         System.out.print("Please enter a word --->");
         String word = sc.nextLine();
 
-
-        System.out.println(("The word you entered, "+ word +" has ") + countVowels(word, word.length()) + " vowels");
+        System.out.println(("The word you entered, "+ word +" has ") + VowelCount(word, word.length()) + " vowels");
     }
 
-    static int isVowel (char ch) {
+    public static int VowelCheck (char ch) {
         ch = Character.toUpperCase(ch);
         if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
             return 1;
         else return 0;
     }
-    static int countVowels(String word, int n){
+    public static int VowelCount(String word, int n){
         if (n==1)
-            return isVowel(word.charAt(0));
+            return VowelCheck(word.charAt(0));
 
-        return countVowels(word, n-1) + isVowel(word.charAt(n - 1));
+        return VowelCount(word, n-1) + VowelCheck(word.charAt(n - 1));
     }
-
 
 }
